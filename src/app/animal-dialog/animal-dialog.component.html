@@ -1,0 +1,66 @@
+<mat-form-field appearance="fill">
+  <mat-label>Name</mat-label>
+  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Select a species</mat-label>
+  <mat-select id="species" ngDefaultControl [(value)]="selectedSpecies" [(ngModel)]="data.animal.species">
+    <mat-option *ngFor="let specie of species" [value]="specie">
+      {{specie}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Select a gender</mat-label>
+  <mat-select id="gender" ngDefaultControl [(value)]="selectedGender" [(ngModel)]="data.animal.gender">
+    <mat-option *ngFor="let gender of genders" [value]="gender">
+      {{gender}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<!-- <mat-form-field>
+
+</mat-form-field> -->
+<!--
+<mat-form-field>
+  <mat-label>Species</mat-label>
+  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Species</mat-label>
+  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Species</mat-label>
+  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Species</mat-label>
+  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+</mat-form-field>
+<mat-form-field>
+<mat-form-field>
+  <mat-label>Color</mat-label>
+  <textarea id="color" matInput [(ngModel)]="data.animal.color"></textarea>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Species</mat-label>
+  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Species</mat-label>
+  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+</mat-form-field>
+<mat-form-field>
+  <mat-label>Species</mat-label>
+  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+</mat-form-field> -->
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="{ animal: data.animal }">OK</button>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button *ngIf="data.enableDelete" mat-fab color="primary" aria-label="Delete"
+    [mat-dialog-close]="{ animal: data.animal, delete: true }">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>

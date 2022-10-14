@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Animal } from './animal';
+import { Animal, genders } from './animal';
 
 @Component({
   selector: 'app-animal',
@@ -7,6 +7,10 @@ import { Animal } from './animal';
   styleUrls: ['./animal.component.css']
 })
 export class AnimalComponent {
+  genders = [
+    genders.MALE,
+    genders.FEMALE
+  ];
   @Input() animal: Animal | null = null;
   @Output() edit = new EventEmitter<Animal>();
 }

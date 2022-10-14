@@ -1,6 +1,41 @@
-<mat-card class="item" *ngIf="animal" (dblclick)="edit.emit(animal)">
-  <h2>{{ animal.title }}</h2>
-  <p>
-    {{ animal.description }}
-  </p>
+<mat-card class="home-card" *ngIf="animal" (dblclick)="edit.emit(animal)">
+  <mat-card-content gdAreas="header header | side content | footer footer" gdGap="16px" gdRows="auto auto auto"
+    gdAreas.lt-md="header | side | content | footer" gdRows.lt-md="auto auto auto auto">
+    <h2 gdArea="header" class="center">{{ animal.name }}</h2>
+    <img gdArea="side" src="{{animal.imageUrl}}" alt="{{animal.name}}">
+    <div gdArea="content">
+      <div *ngIf="animal.gender === 'Male'">
+        <div>
+          Mannetje
+        </div>
+        <span *ngIf="animal.neutered">
+          gecastreerd
+        </span>
+        <span *ngIf="!animal.neutered">
+          niet gecastreerd
+        </span>
+      </div>
+      <div *ngIf="animal.gender === 'Female'">
+        <div>
+          Vrouwtje
+        </div>
+        <span *ngIf="animal.neutered">
+          gesteriliseerd
+        </span>
+        <span *ngIf="!animal.neutered">
+          niet gesteriliseerd
+        </span>
+      </div>
+      {{animal.city}}
+      <br>
+      {{animal.street}}
+      <br>
+      {{animal.color}}
+      <br>
+      {{animal.dateLost | date: 'dd/MM/yyyy'}}
+      <p style="background-color: #00FFFF;">
+        {{animal.response}}
+      </p>
+      </div>
+  </mat-card-content>
 </mat-card>

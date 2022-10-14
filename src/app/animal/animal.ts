@@ -1,11 +1,47 @@
 export interface Animal {
-  id?: string;
-  title: string;
-  castrated: boolean;
-  gender: string;
+  id?: number;
+  species: animalType;
+  name: string;
+  neutered: boolean;
+  chipped: boolean;
+  gender: genders;
   city: string;
   street: string;
-  description: string;
+  color: colorType;
   imageUrl: string;
+  dateLost: Date;
   response: string;
+}
+
+export enum colorType {
+  BEIGE = 'Beige en bruin (met wit)',
+  GRIJS = 'Volledig grijs',
+  GRIJSWIT = 'Grijs met wit',
+  WITGRIJS = 'Wit met grijs',
+  LAPSCHILD = 'Lapjes en schildpad (met wit)',
+  ROS = 'Volledig ros',
+  ROSWIT = 'Ros met wit',
+  WITROS = 'Wit met ros',
+  TIJGER = 'Volledig tijger',
+  TIGJERWIT = 'Tijger met wit',
+  WITTIJGER = 'Wit met tijger',
+  WIT = 'Volledig wit',
+  ZWART = 'Volledig zwart',
+  ZWARTWIT = 'Zwart met wit',
+  WITZWART = 'Wit met zwart'
+}
+
+export enum animalType {
+  CAT = 'Cat',
+  DOG = 'Dog',
+  BUNNY = 'Bunny',
+  TURTLE = 'Turtle',
+  BIRD = 'Bird',
+  DEER = 'Deer',
+  GOAT = 'Goat'
+}
+
+export enum genders {
+  MALE = 'Male',
+  FEMALE = 'Female'
 }

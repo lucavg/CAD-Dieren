@@ -6,3 +6,15 @@
   </a>
   <span>Coördinatie Antwerpse Dierenbescherming vzw</span>
 </mat-toolbar>
+<div class="content-wrapper">
+  <div class="container-wrapper">
+    <div class="container">
+      <button (click)="newAnimal()" mat-button>
+        <mat-icon>add</mat-icon> Voeg dier toe
+      </button>
+      <app-animal *ngFor="let animal of animals" [animal]="animal">
+
+      </app-animal>
+    </div>
+  </div>
+</div>
