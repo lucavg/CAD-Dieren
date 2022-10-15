@@ -1,9 +1,9 @@
 <mat-form-field appearance="fill">
-  <mat-label>Name</mat-label>
+  <mat-label>Naam</mat-label>
   <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
 </mat-form-field>
 <mat-form-field appearance="fill">
-  <mat-label>Select a species</mat-label>
+  <mat-label>Selecteer een diersoort</mat-label>
   <mat-select id="species" ngDefaultControl [(value)]="selectedSpecies" [(ngModel)]="data.animal.species">
     <mat-option *ngFor="let specie of species" [value]="specie">
       {{specie}}
@@ -11,54 +11,66 @@
   </mat-select>
 </mat-form-field>
 <mat-form-field appearance="fill">
-  <mat-label>Select a gender</mat-label>
+  <mat-label>Selecteer een geslacht</mat-label>
   <mat-select id="gender" ngDefaultControl [(value)]="selectedGender" [(ngModel)]="data.animal.gender">
     <mat-option *ngFor="let gender of genders" [value]="gender">
       {{gender}}
     </mat-option>
   </mat-select>
 </mat-form-field>
-<!-- <mat-form-field>
-
-</mat-form-field> -->
-<!--
-<mat-form-field>
-  <mat-label>Species</mat-label>
-  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+<mat-form-field floatLabel="always">
+  <mat-label>Gesteriliseerd/gecastreerd?</mat-label>
+  <mat-slide-toggle id="neutered" ngDefaultControl [(ngModel)]="data.animal.neutered" value="neutered">
+    <span *ngIf="data.animal.neutered">
+      Ja
+    </span>
+    <span *ngIf="!data.animal.neutered">
+      Nee
+    </span>
+  </mat-slide-toggle>
+  <textarea matInput hidden></textarea>
 </mat-form-field>
-<mat-form-field>
-  <mat-label>Species</mat-label>
-  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+<mat-form-field floatLabel="always">
+  <mat-label>Gechipped?</mat-label>
+  <mat-slide-toggle id="chipped" ngDefaultControl [(ngModel)]="data.animal.chipped" value="chipped">
+    <span *ngIf="data.animal.chipped">
+      Ja
+    </span>
+    <span *ngIf="!data.animal.chipped">
+      Nee
+    </span>
+  </mat-slide-toggle>
+  <textarea matInput hidden></textarea>
 </mat-form-field>
-<mat-form-field>
-  <mat-label>Species</mat-label>
-  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+<mat-form-field *ngIf="data.animal.chipped" appearance="fill">
+  <mat-label>Chipnr</mat-label>
+  <input id="chipNr" matInput [(ngModel)]="data.animal.chipNr" />
 </mat-form-field>
-<mat-form-field>
-  <mat-label>Species</mat-label>
-  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+<mat-form-field appearance="fill">
+  <mat-label>Stad</mat-label>
+  <input id="city" matInput [(ngModel)]="data.animal.city" />
 </mat-form-field>
-<mat-form-field>
-<mat-form-field>
-  <mat-label>Color</mat-label>
-  <textarea id="color" matInput [(ngModel)]="data.animal.color"></textarea>
+<mat-form-field appearance="fill">
+  <mat-label>Straat</mat-label>
+  <input id="street" matInput [(ngModel)]="data.animal.street" />
 </mat-form-field>
-<mat-form-field>
-  <mat-label>Species</mat-label>
-  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+<mat-form-field appearance="fill">
+  <mat-label>Selecteer een kleur</mat-label>
+  <mat-select id="color" [(value)]="selectedColor" [(ngModel)]="data.animal.color">
+    <mat-option *ngFor="let color of colors" [value]="color">
+      {{color}}
+    </mat-option>
+  </mat-select>
 </mat-form-field>
-<mat-form-field>
-  <mat-label>Species</mat-label>
-  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
-</mat-form-field>
-<mat-form-field>
-  <mat-label>Species</mat-label>
-  <input id="name" matInput cdkFocusInitial [(ngModel)]="data.animal.name" />
+<!-- <mat-form-field appearance="fill">
+  <mat-label>Foto</mat-label>
+  <button type="button" mat-raised-button (click)="fileInput.click()">Foto</button>
+  <input matInput hidden (change)="onFileSelected()" #fileInput type="file" id="file">
 </mat-form-field> -->
 
 <div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="{ animal: data.animal }">OK</button>
-  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button [mat-dialog-close]="{ animal: data.animal }">OK</button>
+  <button mat-raised-button (click)="cancel()">Cancel</button>
   <button *ngIf="data.enableDelete" mat-fab color="primary" aria-label="Delete"
     [mat-dialog-close]="{ animal: data.animal, delete: true }">
     <mat-icon>delete</mat-icon>

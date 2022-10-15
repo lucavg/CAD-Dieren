@@ -4,7 +4,7 @@
     <h2 gdArea="header" class="center">{{ animal.name }}</h2>
     <img gdArea="side" src="{{animal.imageUrl}}" alt="{{animal.name}}">
     <div gdArea="content">
-      <div *ngIf="animal.gender === 'Male'">
+      <ng-container *ngIf="animal.gender === genders[0]; else second">
         <div>
           Mannetje
         </div>
@@ -14,28 +14,30 @@
         <span *ngIf="!animal.neutered">
           niet gecastreerd
         </span>
-      </div>
-      <div *ngIf="animal.gender === 'Female'">
+      </ng-container>
+      <ng-template #second>
         <div>
-          Vrouwtje
+          <div>
+            Vrouwtje
+          </div>
+          <span *ngIf="animal.neutered">
+            gesteriliseerd
+          </span>
+          <span *ngIf="!animal.neutered">
+            niet gesteriliseerd
+          </span>
         </div>
-        <span *ngIf="animal.neutered">
-          gesteriliseerd
-        </span>
-        <span *ngIf="!animal.neutered">
-          niet gesteriliseerd
-        </span>
-      </div>
+      </ng-template>
       {{animal.city}}
       <br>
       {{animal.street}}
       <br>
-      {{animal.color}}
+      {{animal.gender}}
       <br>
       {{animal.dateLost | date: 'dd/MM/yyyy'}}
       <p style="background-color: #00FFFF;">
         {{animal.response}}
       </p>
-      </div>
+    </div>
   </mat-card-content>
 </mat-card>

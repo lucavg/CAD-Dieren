@@ -55,11 +55,26 @@ export class AnimalDialogComponent {
     this.action = this.local_data.action;
   }
 
+
   doAction() {
     this.dialogRef.close({ event: this.action, data: this.local_data });
+    console.log();
   }
   cancel(): void {
     this.dialogRef.close({ event: 'Cancel' });
+  }
+
+  onFileSelected() {
+    const inputNode: any = document.querySelector('#file');
+    if (typeof (FileReader) !== 'undefined') {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.data.animal.imageUrl = e.target.result;
+      };
+
+      reader.readAsArrayBuffer(inputNode.files[0]);
+    }
   }
 }
 

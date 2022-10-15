@@ -1,9 +1,10 @@
 export interface Animal {
   id?: number;
-  species: animalType;
   name: string;
+  species: animalType;
   neutered: boolean;
   chipped: boolean;
+  chipNr: number;
   gender: genders;
   city: string;
   street: string;

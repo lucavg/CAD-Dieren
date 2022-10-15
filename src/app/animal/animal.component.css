@@ -23,3 +23,7 @@ mat-card {
   grid-row-gap: 16px;
   grid-column-gap: 16px;
 }
+
+.t-left {
+  text-align: left;
+}

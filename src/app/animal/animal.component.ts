@@ -8,8 +8,8 @@ import { Animal, genders } from './animal';
 })
 export class AnimalComponent {
   genders = [
-    genders.MALE,
-    genders.FEMALE
+    'Male',
+    'Female'
   ];
   @Input() animal: Animal | null = null;
   @Output() edit = new EventEmitter<Animal>();

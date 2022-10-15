@@ -13,12 +13,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-import { FirestoreModule } from '@angular/fire/firestore';
+import { FirestoreModule, provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from 'src/environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { MatFileUploadModule } from 'angular-material-fileupload';
+
 
 const importModules = [
   BrowserModule,
@@ -32,11 +37,12 @@ const importModules = [
   MatOptionModule,
   FlexLayoutModule,
   MatRadioModule,
+  MatSlideToggleModule,
   FormsModule,
   BrowserAnimationsModule,
   ReactiveFormsModule,
   AngularFireModule.initializeApp(environment.firebase),
-  FirestoreModule
+  FirestoreModule,
 ];
 const exportModules = [
   BrowserModule,
@@ -48,6 +54,7 @@ const exportModules = [
   MatInputModule,
   MatSelectModule,
   MatOptionModule,
+  MatSlideToggleModule,
   FlexLayoutModule,
   MatRadioModule,
   FormsModule,
