@@ -39,7 +39,8 @@ export enum animalType {
   TURTLE = 'Turtle',
   BIRD = 'Bird',
   DEER = 'Deer',
-  GOAT = 'Goat'
+  GOAT = 'Goat',
+  FERRET = 'Ferret'
 }
 
 export enum genders {

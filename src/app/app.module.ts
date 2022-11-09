@@ -22,7 +22,8 @@ import { FirestoreModule, provideFirestore, getFirestore } from '@angular/fire/f
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { MatFileUploadModule } from 'angular-material-fileupload';
+// import { MatFileUploadModule } from 'angular-material-fileupload';
+// "angular-material-fileupload": "^0.0.1",
 
 
 const importModules = [
